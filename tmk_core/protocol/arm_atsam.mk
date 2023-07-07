@@ -10,7 +10,11 @@ ifeq ($(RGB_MATRIX_DRIVER),custom)
 endif
 SRC += $(ARM_ATSAM_DIR)/main_arm_atsam.c
 SRC += $(ARM_ATSAM_DIR)/shift_register.c
-SRC += $(ARM_ATSAM_DIR)/spi_master.c
+ifndef NO_SR_EXP
+	SRC += $(ARM_ATSAM_DIR)/spi_master.c
+else
+	COMPILEFLAGS += -DNO_SR_EXP
+endif
 SRC += $(ARM_ATSAM_DIR)/startup.c
 
 SRC += $(ARM_ATSAM_DIR)/usb/main_usb.c
@@ -25,7 +29,11 @@ SRC += $(ARM_ATSAM_DIR)/usb/usb_device_udd.c
 SRC += $(ARM_ATSAM_DIR)/usb/usb_hub.c
 SRC += $(ARM_ATSAM_DIR)/usb/usb_util.c
 
-SRC += $(DRIVER_PATH)/usb2422.c
+ifndef NO_USB2422
+	SRC += $(DRIVER_PATH)/usb2422.c
+else
+	COMPILEFLAGS += -DNO_USB2422
+endif
 
 # Search Path
 VPATH += $(TMK_DIR)/$(ARM_ATSAM_DIR)

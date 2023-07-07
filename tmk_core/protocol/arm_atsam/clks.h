@@ -21,7 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef MD_BOOTLOADER
 
 // From keyboard
-#    include "config_led.h"
+/* #    include "config_led.h" */
 #    include "config.h"
 
 #endif // MD_BOOTLOADER
@@ -31,6 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define FREQ_SPI_DEFAULT 1000000   // spi to 595 shift regs
 #define FREQ_I2C0_DEFAULT 100000   // i2c to hub
 #define FREQ_I2C1_DEFAULT I2C_HZ   // i2c to LED drivers
+#define FREQ_TC25_DEFAULT 1000000  // 1 usec resolution
 #define FREQ_TC45_DEFAULT 1000000  // 1 usec resolution
 
 // I2C1 Set      ~Result     PWM Time (2x Drivers)
@@ -51,8 +52,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Generator clock channels
 #define GEN_DPLL0 0
+#define GEN_DFLL 0
 #define GEN_OSC0 1
+#define GEN_TC25 2
 #define GEN_TC45 2
+#define GEN_PTC 5
 
 #define SERCOM_COUNT 5
 #define GCLK_COUNT 12
