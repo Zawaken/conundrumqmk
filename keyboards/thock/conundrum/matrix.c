@@ -47,10 +47,10 @@ void matrix_scan_user(void) {
 void matrix_init(void)
 {
     memset(mlatest, 0, MATRIX_ROWS * sizeof(matrix_row_t));
- 
+
     ec_touch_init(touch_signals);
 
-    matrix_init_quantum();
+    /* matrix_init_quantum(); */
 
     ec_touch_start();
 }
@@ -76,7 +76,7 @@ uint8_t matrix_scan(void)
     }
   }
 
-  matrix_scan_quantum();
+  /* matrix_scan_quantum(); */
 
   return 1;
 }

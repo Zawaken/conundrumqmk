@@ -28,7 +28,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "i2c_master.h"
 #include "shift_register.h"
 
+#ifndef NO_USB2422
 #include "./usb/usb_hub.h"
+#endif
 
 #ifndef MD_BOOTLOADER
 

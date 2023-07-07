@@ -297,7 +297,9 @@ int main(void) {
     i2c1_init();
 #endif // RGB_MATRIX_ENABLE
 
+    #ifndef NO_USB2422
     USB_Hub_init();
+    #endif
 
     DBGC(DC_MAIN_UDC_START_BEGIN);
     udc_start();
@@ -307,8 +309,10 @@ int main(void) {
     CDC_init();
     DBGC(DC_MAIN_CDC_INIT_COMPLETE);
 
+    #ifndef NO_USB2422
     while (USB_Hub_Port_Detect_Init() == 0) {
     }
+    #endif
 
     DBG_LED_OFF;
 
