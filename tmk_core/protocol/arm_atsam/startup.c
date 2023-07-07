@@ -512,7 +512,8 @@ void Reset_Handler(void) {
         *MAGIC_ADDR = 0x00000000;       /* Change value to prevent potential bootloader entrance loop */
         __set_MSP(0x20008818);          /* MSP according to bootloader */
         SCB->VTOR = 0x00000000;         /* Vector table back to bootloader's */
-        asm("bx %0" ::"r"(0x00001267)); /* Jump past bootloader RCAUSE check using THUMB */
+        //asm("bx %0" ::"r"(0x00001267)); /* Jump past bootloader RCAUSE check using THUMB */
+        NVIC_SystemReset();
     }
 #endif
     uint32_t *pSrc, *pDest;

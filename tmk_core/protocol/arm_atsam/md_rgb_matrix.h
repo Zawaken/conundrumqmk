@@ -22,8 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "eeprom.h"
 
 // From keyboard
-// FIXME
-/* #include "config_led.h" */
+#include "config_led.h"
 
 // CS1-CS16 Current Source "Col"
 #define ISSI3733_CS_COUNT 16
